@@ -1,14 +1,32 @@
 {
-  "name": "Hex board game",
+  "name": "davies-hex-ai",
   "version": "1.2.5",
-  "description": "A powerful Hex",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron ."
-  },
   "author": "Davies",
-  "license": "None",
+  "license": "MIT",
+  "description": "Multi-level Hex AI, computed with vanilla js, no dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alcalyn/hex_board_game.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alcalyn/hex_board_game/issues"
+  },
+  "homepage": "https://github.com/alcalyn/hex_board_game#readme",
+  "keywords": [
+    "hex",
+    "ai",
+    "board game"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "src/"
+  ],
   "devDependencies": {
-    "electron": "~1.7.8"
+    "mocha": "^11.7.1"
   }
 }
