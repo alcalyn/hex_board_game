@@ -687,7 +687,7 @@ function start() {
     isStart = true;
     theComputer = isFirst ? WHO_BLUE : WHO_RED;
     if (!isFirst && useComputer)
-        setTimeout(notifyComputerMove, 500);
+        notifyComputerMove();
     // Start full timing
     startRedTimeCount();
     startBlueTimeCount();

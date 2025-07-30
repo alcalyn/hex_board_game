@@ -37,7 +37,7 @@ layui.use(['jquery', 'form', 'layer'], function () {
             if (showWinner(i, j))
                 return;
             if (useComputer)
-                setTimeout(notifyComputerMove, 500);
+                notifyComputerMove();
         });
         // Click handler for the undo button
         layui.$('#undo').click(function (event) {
