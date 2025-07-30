@@ -35,36 +35,34 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [功能定制](#功能定制)
+* [Feature Customization](#feature-customization)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
-* [免责声明](#免责声明)
+* [Disclaimer](#disclaimer)
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-这个`HEX棋`项目是我们计算机问题求解的作业。
-演示地址：[https://daviesgit.github.io/hex_board_game](https://daviesgit.github.io/hex_board_game)
+This `HEX Chess` project is our assignment for the course "Problem Solving in Computer Science".
+Demo link: [https://daviesgit.github.io/hex_board_game](https://daviesgit.github.io/hex_board_game)
 
-游戏界面
+Game Interface
 
 ![result00](readme_images/result00.png)
 
-系统逻辑
+System Logic
 
 ![mind_diagram](mind_diagram.svg)
 
-
-
-功能:
-* 双人模式/人机模式
-* 悔棋
-* 路径权值图
-* 其它请参考`系统介绍.pdf`
+Features:
+* Two-player mode / Human vs AI mode
+* Undo move
+* Path weight visualization
+* For more details, please refer to `System_Introduction.pdf`
 
 
 
@@ -77,11 +75,11 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-这个章节将指导你简单的部署和使用该软件。
+This section will guide you through a simple deployment and usage of the software.
 
 ### Prerequisites
 
-这个项目的依赖安装步骤在下面给出。
+The dependency installation steps for this project are provided below.
 * nginx
 ```sh
 sudo apt-get install nginx
@@ -94,9 +92,9 @@ sudo apt-get install nginx
 git clone https://github.com/path/to/the/repository
 ```
 
-2. 复制 `website` 文件夹到`/var/www/html/`文件夹，并添加可执行权限。
+2. Copy the `website` folder to the `/var/www/html/` directory and add executable permissions.
 
-3. 启动nginx
+3. Start nginx
 
    ```
    sudo nginx
@@ -107,11 +105,12 @@ git clone https://github.com/path/to/the/repository
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. 打开网址 http://localhost/website/
+1. Open the URL: http://localhost/website/
 
-## 功能定制
+## Feature Customization
 
-如果需要功能定制，请联系作者 [1182176003@qq.com](1182176003@qq.com)
+If you need feature customization, please contact the author at [1182176003@qq.com](mailto:1182176003@qq.com)
+
 
 
 
@@ -161,14 +160,15 @@ Project Link: [https://example.com](https://example.com)
 
 
 
-## 免责声明
-* 该软件中所包含的部分内容，包括文字、图片、音频、视频、软件、代码、以及网页版式设计等可能来源于网上搜集。
+## Disclaimer
 
-* 该软件提供的内容仅用于个人学习、研究或欣赏，不可使用于商业和其它意图，一切关于该软件的不正当使用行为均与我们无关，亦不承担任何法律责任。使用该软件应遵守相关法律的规定，通过使用该软件随之而来的风险与我们无关，若使用不当，后果均由个人承担。
+- Some of the content included in this software—such as text, images, audio, video, software, code, and webpage layout—may have been sourced from the internet.
 
-* 该软件不提供任何形式的保证。我们不保证内容的正确性与完整性。所有与使用该软件的直接风险均由用户承担。
+- The content provided by this software is intended solely for personal study, research, or appreciation. It must not be used for commercial purposes or other intentions. Any improper use of this software is unrelated to us, and we bear no legal responsibility. Users should comply with relevant laws, and any risks arising from the use of this software are not our responsibility. Any consequences of misuse are borne by the individual user.
 
-* 如果您认为该软件中所包含的部分内容侵犯了您的权益，请及时通知我们，我们将尽快予以修正或删除。
+- This software is provided without any form of warranty. We do not guarantee the accuracy or completeness of the content. All risks associated with using this software are assumed by the user.
+
+- If you believe any content in this software infringes upon your rights, please notify us promptly. We will address the issue by correcting or removing the content as soon as possible.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->

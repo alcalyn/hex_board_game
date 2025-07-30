@@ -46,15 +46,15 @@ IsPlayer[0] = false;
 IsPlayer[1] = false;
 Level[0] = 3;
 Level[1] = 3;
-//初始化界面
+// Initialize the interface
 function Init() {
-    //倘若当时的状态是游戏中，则将下一个状态设置成初始化
+    // If the current state is "in game", set the next state to "initialize"
     if (IsRunning) {
         LastEvent = "Init()";
         return;
     }
     var ii, jj;
-    //初始化整个棋盘
+    // Initialize the entire board
     for (ii = 0; ii < Size; ii++) {
         for (jj = 0; jj < Size; jj++)
             Fld[ii][jj] = 0;
@@ -69,7 +69,7 @@ function Init() {
     if ((MoveCount + Start0) % 2 == 0) window.document.OptionsForm.Msg.value = " Blue to move.";
     else window.document.OptionsForm.Msg.value = " Red to move.";
 }
-//设置模式（人机对战与否）
+// Set mode (whether to play against AI)
 function SetOption(nn, mm) {
     if (IsRunning) {
         LastEvent = "SetOption(" + nn + "," + mm + ")";
@@ -82,7 +82,7 @@ function SetOption(nn, mm) {
             IsPlayer[nn] = false;
     } else IsStart0 = mm;
 }
-//设置等级
+// Set level
 function SetLevel(nn, mm) {
     if (IsRunning) {
         LastEvent = "SetLevel(" + nn + "," + mm + ")";
@@ -92,8 +92,8 @@ function SetLevel(nn, mm) {
 }
 
 var IsAI = 0;
-//已不用
-//设置是否显示ai状态图
+// No longer used
+// Set whether to display the AI status map
 function ShowAI(bb) {
     var ww;
     IsAI = bb;
@@ -104,7 +104,7 @@ function ShowAI(bb) {
         if (ww < 840) window.top.resizeBy(840 - ww, 0);
     } else document.getElementById('AI').style.display = 'none';
 }
-//时间处理函数
+// Time handling function
 function Timer() {
     if (LastEvent != "") {
         eval(LastEvent);
@@ -168,7 +168,7 @@ function Replay() {
         } else MakeMove(ii, jj, true);
     }
 }
-//获得移动的路径（即历史记录
+// Get the move path (i.e., history)
 function GetMoveList() {
     var ii, jj, nn, ss = "";
     for (nn = 0; nn < MaxMoveCount; nn++) {
@@ -179,8 +179,8 @@ function GetMoveList() {
     }
     window.document.OptionsForm.MoveList.value = ss;
 }
-//已不用
-//申请移动的路径（即在对应的move list中填入位置信息来移动而不是点击界面
+// No longer used
+// Request the move path (i.e., fill in position info in the move list to move instead of clicking on the interface)
 function ApplyMoveList() {
     if (IsRunning) {
         LastEvent = "ApplyMoveList()";
@@ -626,31 +626,31 @@ function Blink(nn) {
     }
     setTimeout("Blink(" + eval(nn + 1) + ")", 200);
 }
-//通过当前选择的等级来让ai获取下一步的棋子，如果等级低则降低准确度
-//变成FF(链接到边缘的点），pot[][]就会变成[20000,20000,0,1248]
-//Bridge中只有Bridge[0]与其他不相同，其他在未落子时均一致，而当落子之后，Bridge[][0]|[1]均会变为0
+// Let AI get the next move based on the selected level; lower levels reduce accuracy
+// Turn into FF (points connected to the edge), pot[][] becomes [20000, 20000, 0, 1248]
+// Only Bridge[0] differs from others; others are the same when no moves placed, after a move, Bridge[][0] and [1] become 0
 function GetPot(llevel) {
     var ii, jj, kk, mm, mmp, nn, bb, dd = 128;
     //    ActiveColor = ((MoveCount + 1 + Start0) % 2) * 2 - 1;
     ActiveColor = WHO_RED === currentMove ? -1 : 1;
-    //Fld我方落了子就是-1，电脑落了就是1,没落就是0
+    // Fld: our pieces are -1, computer’s pieces are 1, empty is 0
     for (ii = 0; ii < Size; ii++) {
         for (jj = 0; jj < Size; jj++) {
             for (kk = 0; kk < 4; kk++) {
                 Pot[ii][jj][kk] = 20000;
-                //bridge（Array[11])1-9过程中暂时无大的变化，但是0和10对应位置的前两个数在上下两部分边存在棋子的时候，会置为0
+                // bridge (Array[11]) no big changes from 1-9, but positions 0 and 10 set to 0 if pieces on top/bottom edges
                 Bridge[ii][jj][kk] = 0;
             }
         }
     }
-    //设置边缘默认路径长度
-    //未落子设置为dd=128
-    //如果是自己的棋子就设置为0 即连通(最短路径为0)
-    //如果是别人的棋子就不设置默认为20000 即路径长度无穷大
+    // Set default path length for edges
+    // Unoccupied positions set to dd=128
+    // If own piece, set to 0 (connected, shortest path = 0)
+    // If opponent’s piece, leave default 20000 (path length infinite)
     for (ii = 0; ii < Size; ii++) {
         if (Fld[ii][0] == 0) Pot[ii][0][0] = dd; //blue border
         else {
-            if (Fld[ii][0] > 0) Pot[ii][0][0] = 0; //如果是自己的棋子 将其路径长度设置为0
+            if (Fld[ii][0] > 0) Pot[ii][0][0] = 0; // If it is your own piece, set its path length to 0
         }
         if (Fld[ii][Size - 1] == 0) Pot[ii][Size - 1][1] = dd; //blue border
         else {
@@ -658,7 +658,6 @@ function GetPot(llevel) {
         }
     }
     for (jj = 0; jj < Size; jj++) {
-        00
         if (Fld[0][jj] == 0) Pot[0][jj][2] = dd; //red border
         else {
             if (Fld[0][jj] < 0) Pot[0][jj][2] = 0;
@@ -677,8 +676,8 @@ function GetPot(llevel) {
         nn = 0;
         do {
             nn++;
-            bb = 0; //bb表示每次迭代修改过权值的落子点数
-            //正向迭代 从左到右
+            bb = 0; // bb represents the number of move points whose weights were modified in each iteration
+            // Forward iteration: from left to right
             for (ii = 0; ii < Size; ii++) {
                 for (jj = 0; jj < Size; jj++) {
                     if (Upd[ii][jj]) bb += SetPot(ii, jj, kk, 1, llevel);
@@ -692,9 +691,9 @@ function GetPot(llevel) {
             }
         }
         while ((bb > 0) && (nn < 12));
-        // 如果此次迭代未修改过权值 即表示权值计算结束，迭代结束
-        //（未修改权值的情况为正向迭代与反向迭代结果一致）
-        // 迭代次数不超过12次 
+        // If no weights were modified in this iteration, it means the weight calculation is complete and iteration ends
+        // (No modification means forward and backward iteration results are the same)
+        // Number of iterations does not exceed 12
     }
     for (kk = 2; kk < 4; kk++) //red potential
     {
@@ -721,33 +720,33 @@ function GetPot(llevel) {
     }
 }
 
-var vv = new Array(6); //从右下的棋子开始逆时针一圈的每个点到边缘的路径长度
+var vv = new Array(6); // Path lengths from each point in a counterclockwise circle starting at the bottom-right piece to the edge
 var tt = new Array(6);
 
-//计算最短路径存放到Pot中 
-//20000表示无法连通并且（距离无穷大）
-//30000表示没有这个顶点 （距离无穷大）在vv中使用
-function SetPot(ii, jj, kk, cc, llevel) { //cc=1
+// Calculate shortest paths and store in Pot
+// 20000 means no connection (infinite distance)
+// 30000 means this vertex does not exist (infinite distance), used in vv
+function SetPot(ii, jj, kk, cc, llevel) { // cc=1
     Upd[ii][jj] = false;
     Bridge[ii][jj][kk] = 0;
-    if (Fld[ii][jj] == -cc) return (0); //如果是别人的棋直接返回，使用默认值20000 不进行最短路径计算
+    if (Fld[ii][jj] == -cc) return (0); // If it’s the opponent’s piece, return immediately, use default 20000 without shortest path calculation
     var ll, mm, ddb = 0,
         nn, oo = 0,
-        dd = 140, //dd为这个点为空的默认路径长度
+        dd = 140, // dd is the default path length if this point is empty
         bb = 66;
     if (cc != ActiveColor) bb = 52;
     //vv array(121)
-    //potval 没落子就返回权值
-    //落了就是30000
-    //c:加入相邻节点
-    vv[0] = PotVal(ii + 1, jj, kk, cc); //从右下的落子点开始逆时针一圈 获取六个落子点到边缘的路径长度 存入vv
+    // potval returns weight if no piece placed
+    // returns 30000 if piece placed
+    // c: add neighboring nodes
+    vv[0] = PotVal(ii + 1, jj, kk, cc); // Starting from the bottom-right piece, get path lengths of six surrounding points to the edge in counterclockwise order and store in vv
     vv[1] = PotVal(ii, jj + 1, kk, cc);
     vv[2] = PotVal(ii - 1, jj + 1, kk, cc);
     vv[3] = PotVal(ii - 1, jj, kk, cc);
     vv[4] = PotVal(ii, jj - 1, kk, cc);
     vv[5] = PotVal(ii + 1, jj - 1, kk, cc);
     for (ll = 0; ll < 6; ll++) {
-        if ((vv[ll] >= 30000) && (vv[(ll + 2) % 6] >= 30000)) { //如果间隔一个棋子的pot权值大于等于30000（无法连通）
+        if ((vv[ll] >= 30000) && (vv[(ll + 2) % 6] >= 30000)) { // If the pot value of the point one piece away is greater than or equal to 30000 (unreachable)
             if (vv[(ll + 1) % 6] < 0)
                 ddb = +32;
             else
@@ -755,7 +754,7 @@ function SetPot(ii, jj, kk, cc, llevel) { //cc=1
         }
     }
     for (ll = 0; ll < 6; ll++) {
-        if ((vv[ll] >= 30000) && (vv[(ll + 3) % 6] >= 30000)) { //如果对称的棋子的pot权值大于等于30000（无法连通）
+        if ((vv[ll] >= 30000) && (vv[(ll + 3) % 6] >= 30000)) { // If the pot value of the symmetric piece is greater than or equal to 30000 (unreachable)
             ddb += 30;
         }
     }
@@ -803,7 +802,7 @@ function SetPot(ii, jj, kk, cc, llevel) { //cc=1
     if (Bridge[ii][jj][kk] > 68)
         Bridge[ii][jj][kk] = 68; //66
 
-    //如果是自己落子 
+    //如果是自己落子
     if (Fld[ii][jj] == cc) {
         //修改权值并返回
         if (mm < Pot[ii][jj][kk]) { //计算的小于当前的

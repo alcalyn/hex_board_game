@@ -398,36 +398,36 @@
 
             <form class="layui-form" id="test" style="font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;line-height: 24px;">
                 <fieldset class="layui-elem-field" style="margin: 0px 10px;">
-                    <legend>HEX棋配置</legend>
+                    <legend>HEX Game Configuration</legend>
                     <div class="layui-field-box">
 
                         <div class="layui-form-item">
                             <div class="layui-inline">
-                                <label class="layui-form-label">模式：</label>
+                                <label class="layui-form-label">Mode:</label>
                                 <div class="layui-input-block">
-                                    <input type="checkbox" name="close" checked="" lay-skin="switch" lay-filter="mode" lay-text="人机对战|双人模式">
+                                    <input type="checkbox" name="close" checked="" lay-skin="switch" lay-filter="mode" lay-text="Human vs AI|Two-player Mode">
                                 </div>
                             </div>
                             <div class="layui-inline">
-                                <label class="layui-form-label">我要：</label>
+                                <label class="layui-form-label">I want:</label>
                                 <div class="layui-input-block">
-                                    <input type="checkbox" name="close" checked="" lay-skin="switch" lay-filter="first" lay-text="先手|后手">
+                                    <input type="checkbox" name="close" checked="" lay-skin="switch" lay-filter="first" lay-text="First Move|Second Move">
                                 </div>
                             </div>
                             <div class="layui-inline">
-                                <label class="layui-form-label" style="width: 70px;">电脑等级：</label>
+                                <label class="layui-form-label" style="width: 70px;">AI Level:</label>
                                 <div class="layui-input-block" style="margin-left: 76px; width: 80px;">
                                     <select name="interest" lay-filter="level">
-                                        <option value="01">01级</option>
-                                        <option value="02">02级</option>
-                                        <option value="03">03级</option>
-                                        <option value="04">04级</option>
-                                        <option value="05">05级</option>
-                                        <option value="06">06级</option>
-                                        <option value="07">07级</option>
-                                        <option value="08" selected="">08级</option>
-                                        <option value="09">09级</option>
-                                        <option value="10">10级</option>
+                                        <option value="01">Lvl 1</option>
+                                        <option value="02">Lvl 2</option>
+                                        <option value="03">Lvl 3</option>
+                                        <option value="04">Lvl 4</option>
+                                        <option value="05">Lvl 5</option>
+                                        <option value="06">Lvl 6</option>
+                                        <option value="07">Lvl 7</option>
+                                        <option value="08" selected="">Lvl 8</option>
+                                        <option value="09">Lvl 9</option>
+                                        <option value="10">Lvl 10</option>
                                     </select>
                                 </div>
                             </div>
@@ -437,10 +437,10 @@
 
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <button type="button" class="layui-btn layui-btn-normal" id="undo">悔棋</button>
-                                <button type="button" class="layui-btn layui-btn-checked" id="start">开始</button>
-                                <button type="button" class="layui-btn layui-btn-danger" id="replay">重玩</button>
-                                <button type="button" class="layui-btn " id="about_button">说明</button>
+                                <button type="button" class="layui-btn layui-btn-normal" id="undo">Undo</button>
+                                <button type="button" class="layui-btn layui-btn-checked" id="start">Start</button>
+                                <button type="button" class="layui-btn layui-btn-danger" id="replay">Replay</button>
+                                <button type="button" class="layui-btn " id="about_button">Instructions</button>
                             </div>
                         </div>
 
@@ -449,24 +449,24 @@
             </form>
 
             <fieldset class="layui-elem-field" style="margin: 0px 10px;">
-                <legend>HEX棋状态</legend>
+                <legend>HEX Game Status</legend>
                 <div class="layui-field-box">
 
                     <div class="info" style="display: inline-block; vertical-align: top; width: 200px; height: 120px;">
-                        <div><span class="key">当前棋手：</span><span id="who">未开始</span></div>
-                        <div><span class="key">总步数：</span><span id="total_steps">100</span></div>
-                        <div><span class="key">红方用时：</span><span id="red_time_span">10m32s</span></div>
-                        <div><span class="key">蓝方用时：</span><span id="blue_time_span">10m32s</span></div>
+                        <div><span class="key">Current Player:</span><span id="who">Not Started</span></div>
+                        <div><span class="key">Total Moves:</span><span id="total_steps">100</span></div>
+                        <div><span class="key">Red Time:</span><span id="red_time_span">10m32s</span></div>
+                        <div><span class="key">Blue Time:</span><span id="blue_time_span">10m32s</span></div>
                     </div>
                     <div class="history" style="display: inline-block; vertical-align: top; width: 200px; height: 120px;">
-                        <div><span style="padding-left: 15px; color: red;">红子：</span><span>A5</span></div>
-                        <div><span style="padding-left: 15px; color: blue;">蓝子：</span><span>H6</span></div>
-                        <div><span style="padding-left: 15px; color: red;">红子：</span><span>A5</span></div>
-                        <div><span style="padding-left: 15px; color: blue;">蓝子：</span><span>H6</span></div>
-                        <div><span style="padding-left: 15px; color: red;">红子：</span><span>A5</span></div>
-                        <div><span style="padding-left: 15px; color: blue;">蓝子：</span><span>H6</span></div>
-                        <div><span style="padding-left: 15px; color: red;">红子：</span><span>A5</span></div>
-                        <div><span style="padding-left: 15px; color: blue;">蓝子：</span><span>H6</span></div>
+                        <div><span style="padding-left: 15px; color: red;">Red:</span><span>A5</span></div>
+                        <div><span style="padding-left: 15px; color: blue;">Blue:</span><span>H6</span></div>
+                        <div><span style="padding-left: 15px; color: red;">Red:</span><span>A5</span></div>
+                        <div><span style="padding-left: 15px; color: blue;">Blue:</span><span>H6</span></div>
+                        <div><span style="padding-left: 15px; color: red;">Red:</span><span>A5</span></div>
+                        <div><span style="padding-left: 15px; color: blue;">Blue:</span><span>H6</span></div>
+                        <div><span style="padding-left: 15px; color: red;">Red:</span><span>A5</span></div>
+                        <div><span style="padding-left: 15px; color: blue;">Blue:</span><span>H6</span></div>
                     </div>
 
                 </div>
@@ -1346,7 +1346,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: red; padding: 0 5px; font-size: 30px;">红色</span><br>上边界视图</span>
+                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: red; padding: 0 5px; font-size: 30px;">Red</span><br>Top Boundary View</span>
                         </div>
 
                     </div>
@@ -2215,7 +2215,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: red; padding: 0 5px; font-size: 30px;">红色</span><br>下边界视图</span>
+                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: red; padding: 0 5px; font-size: 30px;">Red</span><br>Bottom Boundary View</span>
                         </div>
 
                     </div>
@@ -3084,7 +3084,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: red; padding: 0 5px; font-size: 30px;">红色</span><br>综合视图</span>
+                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: red; padding: 0 5px; font-size: 30px;">Red</span><br>Composite View</span>
                         </div>
 
                     </div>
@@ -3955,7 +3955,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: blue; padding: 0 5px; font-size: 30px;">蓝色</span><br>左边界视图</span>
+                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: blue; padding: 0 5px; font-size: 30px;">Blue</span><br>Left Boundary View</span>
                         </div>
 
                     </div>
@@ -4824,7 +4824,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: blue; padding: 0 5px; font-size: 30px;">蓝色</span><br>右边界视图</span>
+                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: blue; padding: 0 5px; font-size: 30px;">Blue</span><br>Right Boundary View</span>
                         </div>
 
                     </div>
@@ -5693,7 +5693,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: blue; padding: 0 5px; font-size: 30px;">蓝色</span><br>综合视图</span>
+                            <span style=" display: inline-block; position: absolute; top: 10px; right: 10px; font-size: 20px; font-weight: bold;width: 100px; color:black;"><span style="color: blue; padding: 0 5px; font-size: 30px;">Blue</span><br>Composite View</span>
                         </div>
 
                     </div>
@@ -5706,24 +5706,24 @@
 
     <div class="layui-form" id="about_info" style="display:none;">
         <fieldset class="layui-elem-field" style="margin: 0px 10px;">
-            <legend>说明信息</legend>
+            <legend>Instructions</legend>
             <div class="layui-field-box">
                 <div style="font-size: 18px; padding:10px 50px;">
-                    <h1 style="text-align: center;font-size: 40px;">Hex棋</h1>
-                    <p style="text-indent: 0px;padding-bottom: 10px;">摘要：</p>
-                    <p style="text-indent: 36px;padding-bottom: 10px;">Hex棋的项目载体是网页，在实现该项目的过程中主要运用语言是HTML，CSS，JavaScript，运用框架是layui，运用库为jQuery，moment.js，主要的开源工具是particles.js （github地址：https://github.com/VincentGarreau/particles.js） </p>
-                    <p style="text-indent: 36px;padding-bottom: 10px;">该实验内容包括：比赛页面设计，编写双方交替落子，每次只能落一个棋子程序，两个相邻的同色棋子被认为相互连通，最先将同色的两个边界用同色棋子连通的一方获胜，关于判定胜负的程序编写，以及相关算法的描述。</p>
-                    <p style="text-indent: 36px;padding-bottom: 10px;">实验成果：在保证博弈页面的美观清楚的条件下完成了海克斯棋的双人对战和人机对战。</p>
-                    <p style="text-indent: 36px;padding-bottom: 10px;">实验不足：双人对战是基于同台设备的基础上运行的，博弈时不仅体验感差而且不方便。</p>
+                    <h1 style="text-align: center;font-size: 40px;">Hex Game</h1>
+                    <p style="text-indent: 0px;padding-bottom: 10px;">Summary:</p>
+                    <p style="text-indent: 36px;padding-bottom: 10px;">The Hex game is implemented as a web-based project using HTML, CSS, and JavaScript. It uses the layui framework and the libraries jQuery, moment.js, and the main open-source tool particles.js (GitHub: https://github.com/VincentGarreau/particles.js).</p>
+                    <p style="text-indent: 36px;padding-bottom: 10px;">This project includes: designing the game interface, programming alternating turns for players, allowing only one move at a time, considering two adjacent same-color pieces as connected, and declaring the player who first connects two opposite sides with the same color pieces as the winner. It also includes the logic for determining the winner and descriptions of relevant algorithms.</p>
+                    <p style="text-indent: 36px;padding-bottom: 10px;">Project achievements: Successfully implemented both human-vs-human and human-vs-AI modes while maintaining a visually appealing interface.</p>
+                    <p style="text-indent: 36px;padding-bottom: 10px;">Project limitations: The two-player mode is limited to a single shared device, which affects the user experience and convenience.</p>
                 </div>
-                
+
                 <div style="font-size: 18px; padding:50px 50px 20px 50px;">
-                    <h1 style="font-size: 24px;">部分设计思路：</h1>
+                    <h1 style="font-size: 24px;">Design Concepts:</h1>
                 </div>
 
                 <div style="padding: 0 30px; margin-bottom: 30px;">
                     <fieldset class="layui-elem-field" style="margin: 0px 10px;">
-                        <legend>初始化过程：</legend>
+                        <legend>Initialization Process:</legend>
                         <div class="layui-field-box" style="padding: 20px;">
                             <div style="background-color: white;text-align: center;"><img style="object-fit: none;object-position: 0 -0px;width: 850px;height: 550px;" src="asset/mind_diagram.svg"></div>
                         </div>
@@ -5732,7 +5732,7 @@
 
                 <div style="padding: 0 30px; margin-bottom: 30px;">
                     <fieldset class="layui-elem-field" style="margin: 0px 10px;">
-                        <legend>最优落子点选取思路：</legend>
+                        <legend>Optimal Move Selection Strategy:</legend>
                         <div class="layui-field-box" style="padding: 20px;">
                             <div style="background-color: white;text-align: center;"><img style="object-fit: none;object-position: 0 -900px;width: 850px;height: 400px;" src="asset/mind_diagram.svg"></div>
                         </div>
@@ -5741,7 +5741,7 @@
 
                 <div style="padding: 0 30px; margin-bottom: 30px;">
                     <fieldset class="layui-elem-field" style="margin: 0px 10px;">
-                        <legend>用户点击棋盘事件的处理流程：</legend>
+                        <legend>User Click Event Handling Flow:</legend>
                         <div class="layui-field-box" style="padding: 20px;">
                             <div style="background-color: white;text-align: center;"><img style="object-fit: none;object-position: 0 -2000px;width: 850px;height: 1700px;" src="asset/mind_diagram.svg"></div>
                         </div>
@@ -5750,7 +5750,7 @@
 
                 <div style="padding: 0 30px; margin-bottom: 30px;">
                     <fieldset class="layui-elem-field" style="margin: 0px 10px;">
-                        <legend>最短路径算法思路：</legend>
+                        <legend>Shortest Path Algorithm Concept:</legend>
                         <div class="layui-field-box" style="padding: 20px;">
                             <div style="background-color: white;text-align: center;"><img style="object-fit: none;object-position: 0 -4000px;width: 850px;height: 1880px;" src="asset/mind_diagram.svg"></div>
                         </div>

@@ -3,28 +3,28 @@ layui.use(['jquery', 'form', 'layer'], function () {
     layui.$(function () {
 
         layui.form.render()
-        //监听指定开关
-        //监听模式开关
+        // Listen to the specified switch
+        // Listen to mode switch
         layui.form.on('switch(mode)', function (data) {
             useComputer = this.checked;
         });
-        //监听是否选择先手
+        // Listen to whether first move is selected
         layui.form.on('switch(first)', function (data) {
             isFirst = this.checked;
         });
-        //选择电脑等级
+        // Select computer difficulty level
         layui.form.on('select(level)', function (data) {
             theComputerLevel = +data.value;
         });
-        //棋盘上的每个格子（落子点）的点击事件处理
+        // Click event handler for each cell (move point) on the board
         layui.$('#piece>div>img').click(function (event) {
             layui.layer.closeAll();
             if (!isStart || isOver)
-                return layui.layer.msg("请先开始游戏！", {
+                return layui.layer.msg("Please start the game first!", {
                     icon: 2
                 });
             if (useComputer && currentMove === theComputer)
-                return layui.layer.msg("现在还没有轮到你下哦！", {
+                return layui.layer.msg("It's not your turn yet!", {
                     icon: 2
                 });
             let index = layui.$('#piece>div>img').index(event.target);
@@ -39,15 +39,15 @@ layui.use(['jquery', 'form', 'layer'], function () {
             if (useComputer)
                 setTimeout(notifyComputerMove, 500);
         });
-        //悔棋按钮的点击处理事件
+        // Click handler for the undo button
         layui.$('#undo').click(function (event) {
             if (isOver || MoveCount < 2)
-                return layui.layer.msg("现在不能悔棋哦！", {
+                return layui.layer.msg("You can't undo now!", {
                     icon: 2
                 });
             MoveCount -= 2;
-            //虽然是数组，但是形式上使用了栈，退栈，在悔棋时，将原来已经赋值了的Fld中的数字归零
-            //退栈
+            // Although it's an array, it's used like a stack here. On undo, reset the previously set values in Fld back to zero
+            // Pop from stack
             Fld[History[MoveCount][1]][History[MoveCount][0]] = 0;
             Fld[History[MoveCount + 1][1]][History[MoveCount + 1][0]] = 0;
             updatePot(theComputerLevel);
@@ -58,11 +58,11 @@ layui.use(['jquery', 'form', 'layer'], function () {
             total_steps.innerHTML = MoveCount;
             showHistory();
         });
-        //开始按钮的点击处理事件
+        // Click handler for the start button
         layui.$('#start').click(function (event) {
             start();
         });
-        //重玩按钮的点击处理事件
+        // Click handler for the replay button
         layui.$('#replay').click(function (event) {
             start();
         });
@@ -70,15 +70,15 @@ layui.use(['jquery', 'form', 'layer'], function () {
         layui.$('#about_button').click(function (event) {
             layui.layer.open({
                 type: 1,
-                title: 'Hex棋说明',
+                title: 'Hex Game Description',
                 content: layui.$("#about_info"),
                 maxmin: true,
-                skin: 'layui-layer-rim', //加上边框
-                area: ['1200px;', '95%'], //宽高
+                skin: 'layui-layer-rim', // Add border
+                area: ['1200px;', '95%'], // Width and height
                 shade: 0.5,
-                btn: ['好的', '取消'],
+                btn: ['OK', 'Cancel'],
                 btn1: function (index, layero) {
-                    layui.layer.msg("感谢你的阅读！", {
+                    layui.layer.msg("Thanks for reading!", {
                         icon: 1
                     });
                     layui.layer.close(index);
